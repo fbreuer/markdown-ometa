@@ -1,0 +1,341 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+	<script src="https://raw.github.com/Page-/ometa-js/highlighting/lib/ometajs/core.js"></script>
+	<script src="https://raw.github.com/Page-/ometa-js/highlighting/lib/ometajs/ometa/parsers.js"></script>
+	<script src="https://raw.github.com/marijnh/CodeMirror/master/lib/codemirror.js"></script>
+	<script src="http://lisperator.net/s/js/uglifyjs/uglify.js"></script>
+	<script>
+    window.codeMirrorOmetaBridgeHighlighter=function(n,e,r,t){t=t||{},t={disableReusingMemoizations:t.disableReusingMemoizations||!1,disableVisibleOnlyHighlighting:t.disableVisibleOnlyHighlighting||!1}
+var i=function(){var e=n.createInstance()
+return t.disableReusingMemoizations||e.enableReusingMemoizations(e._sideEffectingRules),e._enableTokens(),function(){return e.reset&&e.reset(),e}}(),o=function(n){for(var e=0;n.currentTokens.length>e;e++)n.currentTokens[e][0]<=n.index&&(n.currentTokens.splice(e,1),e--)},u=function(n,e){for(var r=n.index;r>=n.previousIndex;r--)null!=e[r]&&(n.currentTokens=n.currentTokens.concat(e[r]))
+n.previousIndex=n.index,o(n)},s=function(n){o(n)
+for(var e=n.currentTokens[0],r=1;n.currentTokens.length>r;r++)n.currentTokens[r][0]<e[0]&&(e=n.currentTokens[r])
+return e}
+CodeMirror.defineMode(e,function(r,o){var l,a,c=[],d=0,f=function(n,e){(!e||e.eol())&&(l(),n.index++)},g=function(n,r){var t=n.pos
+if(n.eatSpace())return r.index+=n.pos-t,f(r,n),null
+var i=s(r),o=i[0]-r.index,u=n.string.length-n.pos
+return u=Math.min(u,o),n.pos+=u,r.index+=u,f(r,n),e+"-"+i[1]}
+return function(){var n="",e=0,r=function(n){var e=[]
+try{do e[n.idx]=n.tokens
+while(n=n.tail())}catch(r){}return e}
+l=function(u){var s=o.getOMetaEditor()
+if(null!=s){var l=s.getValue(),a=s.getViewport().to,f=""
+if(o.hasOwnProperty("prependText")&&(f=o.prependText()),null!=u||l!=n||!t.disableVisibleOnlyHighlighting&&a>e){if(null!=u&&(a=Math.min(s.lastLine(),u)),n=l,!t.disableVisibleOnlyHighlighting){e=a
+for(var g=0,p=0;a>p;p++){if(g=l.indexOf("\n",g),-1===g){g=l.length
+break}g++}l=l.slice(0,g)}l=f+l
+var h=i()
+try{var x=h.matchAll(l,"Process")}catch(v){}return c=r(h.inputHead),d=f.length,x}}},a=function(){return l(1/0)}}(),{copyState:function(n){return{index:n.index,previousIndex:n.previousIndex,currentTokens:n.currentTokens}},startState:function(){return{index:d,previousIndex:-1,currentTokens:[]}},blankLine:f,token:function(n,e){if(n.sol()&&l(),u(e,c),e.currentTokens.length>0)return g(n,e)
+for(n.pos++,e.index++;n.pos<n.string.length;n.pos++&&e.index++)if(null!=c[e.index])return null
+return f(e),null},indent:function(){return 0},getGrammar:function(){return n.createInstance()},prependText:function(){return o.hasOwnProperty("prependText")?o.prependText():""},fullParse:a}}),null!=r&&CodeMirror.defineMIME(r,e)}
+  </script>
+	<link href="https://raw.github.com/marijnh/CodeMirror/master/lib/codemirror.css" media="screen" rel="stylesheet" type="text/css" />
+	<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({tex2jax: {inlineMath: [["[beginmathjax]","[endmathjax]"]],
+                                  displayMath: [["[beginmathjaxdisplay]","[endmathjaxdisplay]",]]}});
+	</script>
+  <script type="text/javascript"
+  	src="https://c328740.ssl.cf1.rackcdn.com/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+	</script>
+	<style type="text/css">
+		.CodeMirror {
+			border: 1px solid #ADABB3;
+		}
+
+		span.cm-markdown-h1 {
+			color: #0000FF;
+		}
+		span.cm-markdown-h2 {
+			color: #3333FF;
+		}
+		span.cm-markdown-h3 {
+			color: #6666FF;
+		}
+		span.cm-markdown-strong {
+			font-weight: bold;
+		}
+		span.cm-markdown-em {
+			font-style: italic;
+		}
+		span.cm-markdown-codeblock {
+			color: gray;
+		}
+		span.cm-markdown-expr {
+			color: orange;
+		}
+		span.cm-markdown-latex,  span.cm-markdown-latexdisplay{
+			color: green;
+		}
+	</style>
+	<!--
+	<script src='../../web/ometa-js/lib.js'></script>
+	<script src="../../web/ometa-js/ometa-base.js"></script>
+	<script src="../../web/ometa-js/parser.js"></script>
+	<script src="../../web/ometa-js/bs-js-compiler.js"></script>
+	<script src="../../web/ometa-js/bs-ometa-compiler.js"></script>
+	<script src="../../web/ometa-js/bs-ometa-optimizer.js"></script>
+	<script src="../../web/ometa-js/bs-ometa-js-compiler.js"></script>
+-->
+<style type="text/css">
+h1, h2, h3 { font-family: sans-serif; }
+#output {
+	border: 1px solid black;
+	width: 40em;
+	padding: 1em;
+}
+pre {
+	border: 1px solid brown;
+	background-color: orange;
+	padding: 0.5em;
+}
+.expr {
+	color: red;
+}
+</style>
+	
+</head>
+<body>
+<h1>Markdown Editor with Inline Expressions</h1>
+<p>The preview will be updated on every keystroke.</p>
+<!--738
+
+http://localhost/~josh/projects/compilerclass/guitest2/tests/webeditor.html
+
+-->
+<script type="text/ometajs" id="ometadd">
+//escape the < > and new lines
+function esc(s) {
+	return s.replace(/</g,"&lt").replace(/>/g,"&gt").replace(/\n/g,"<br/>");
+}
+function tag(tag, str) {
+	return " <"+tag+">"+str+"</"+tag+">";
+}
+ometa Foo {
+	toEOL = (~seq('\n') anything)*:t '\n' -> t.join(""),
+	
+	//headers
+	h1 = "#"   ' ' toEOL:t -> tag("h1",t),
+	h2 = "##"  ' ' toEOL:t -> tag("h2",t),
+	h3 = "###" ' ' toEOL:t -> tag("h3",t),
+
+	
+	//paragraph
+  paraend = '\n' ' '* '\n',
+	para =
+		(	latexdisplay
+    | latex
+    | expr
+		|	strong
+		|	em
+		|	(~paraend anything)
+		)+:t
+		-> tag("p",t.join("")),
+      //	text = <(~seq('\n\n') anything)*>,
+	strong =
+		"**"
+		<(~seq('**') anything)*>:t
+		"**"
+		-> tag("strong", t),
+	em =
+		( "*" <(~seq('*') anything)*>:t "*" 
+    | "_" <(~seq('_') anything)*>:t "_") 
+		-> tag("em", t),
+	expr =
+		"{"
+		exp:t
+		"}"
+		-> tag("b", t),
+  latex = "$" (~seq('$') char)*:t "$"       
+          -> (" [beginmathjax]"+t.join("")+"[endmathjax]"),
+  latexdisplay = "$$" (~seq('$') char)*:t "$$" 
+                 -> (" [beginmathjaxdisplay]"+t.join("")+"[endmathjaxdisplay]"),
+
+  //blockquote
+                   blockquote = "> " para:t -> tag("blockquote",t),
+	
+	//code block
+	cbdelim =
+		seq('```\n'),
+	codeblock =
+		cbdelim
+		<(~seq('```') anything)*>:t
+		cbdelim
+		-> tag("pre", esc(t)),
+	
+	//inline expressions
+	num = <digit+>:n -> parseInt(n),
+	term = num,
+	expadd = term:a "+" term:b -> (a+b),
+	expmul = term:a "*" term:b -> (a*b),
+	expsub = term:a "-" term:b -> (a-b),
+	expdiv = term:a "/" term:b -> (a/b),
+	exp = (expmul|expdiv|expadd|expsub):e -> (" <b class='expr'>" + e + "</b>") ,
+	
+	//pull it all together
+	line = spaces (h3|h2|h1|blockquote|codeblock|para):t spaces -> t,
+	Process = line*
+};
+Foo._enableTokens = function() {
+	this.tokensEnabled = true;
+	OMeta._enableTokens.call(this, ['h1', 'h2', 'h3', 'strong', 'codeblock', 'expr', 'em','latex','latexdisplay']);
+};
+</script>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		var editor,
+			compressor = UglifyJS.Compressor({
+				sequences: false,
+				unused: false // We need this off for OMeta
+			}),
+			parseError = function(source) {
+				return function(matchingError, index) {
+					var line = 1,
+						column = 0,
+						i = 0,
+						char,
+						start;
+					for(; i < index; i++) {
+						char = source.charAt(i);
+						column++;
+						if(char == '\n') {
+							line++;
+							column = 0;
+						}
+					}
+					console.error('Error on line ' + line + ', column ' + column);
+					start = Math.max(0, index - 20);
+					console.error('Error around: ' + source.substring(start, Math.min(source.length, start + 40)));
+					console.error('Error around: ' + source.substring(index - 2, Math.min(source.length, index + 2)));
+					throw matchingError;
+				}
+			},
+			compileOMeta = function (source) {
+				var tree = BSOMetaJSParser.matchAll(source, "topLevel", undefined, parseError(source)),
+					js = BSOMetaJSTranslator.match(tree, "trans"),
+					ast = UglifyJS.parse(js);
+				ast.figure_out_scope();
+				ast = ast.transform(compressor);
+				js = ast.print_to_string({
+					beautify: true
+				});
+				return js;
+			};
+		console.log("started");
+		$('#editor').keyup(function(){
+			update();
+		});
+		
+		function update() {
+			var text = editor.getValue();
+			var output = Foo.matchAll(text,'Process');
+			console.log("matched = " + output);
+			$("#output").html(output);
+      //MathJax.Hub.Queue(["Typeset",MathJax.Hub,"output"]);
+      MathJax.Hub.Queue(["Typeset",MathJax.Hub,$("#output").get(0)]);
+		}
+		
+		
+	
+	console.log("running ometa");
+	
+	function parseit(str) {
+		var js = compileOMeta(str);
+		eval(js);
+		window.Foo = Foo;
+	}
+	
+	console.log("text = " + $("#ometadd").text());
+	parseit($("#ometadd").text());
+	codeMirrorOmetaBridgeHighlighter(Foo, 'markdown', 'text/markdown');
+	editor = CodeMirror.fromTextArea($('#editor')[0], {
+			mode: {
+				name: 'markdown',
+				getOMetaEditor: function() {
+					return editor;
+				}
+			},
+			onKeyEvent: update
+		}
+	);
+	
+	
+	console.log("we have a parser now: "+ Foo);
+	update();
+});
+</script>
+
+
+<form>
+<textarea id="editor" rows="20" cols="80"># Big Header
+## Sub Header
+### Sub Sub Header
+
+This *is a* paragraph, _really_. You must
+use **double** new lines to separate
+the paragraphs
+
+like this.
+   
+Thanks to MathJax, we can actually typeset math formulas such as 
+$\sqrt{x^2_j+y^2_j}$ and $S\subset\mathbb{R}^d$. This also handles strict
+inequality signs correctly, as in $x&lt;7$ or $a&gt;b$. Finally, we can also create
+displayed equations like this one
+$$\sum_{i\geq 0} x^i= \frac{1}{1-x}.$$
+  
+We can also use blockquotes like this one:
+
+> The sky above the port was the color of television tuned to a dead channel.
+
+Code fragments work:
+  
+```
+this is a block of code
+with hard coded line
+breaks and escaped &gt; symbols
+```
+  
+### Inline Expression Tests
+
+Add: 4 + 5 = {4+5}
+
+Subtract: 4 - 5 = {4-5}
+
+Multiply 4 x 5 = {4*5}
+
+Divide 4 / 5 = {4/5}
+
+## ToDo List
+  
+There are a great many features that still need to be implemented!  
+  
+Unordered Lists
+  
+* one
+* two 
+  * sub 2.1
+  * sub 2.2
+* three
+
+Ordered Lists
+  
+Images
+  
+Links
+  
+Allow environments to cross, as in: _The cardinality $\aleph_0$ is infinite!_
+  
+Allow escaped dollar signs in latex code like $f(70\$)$. 
+But do not get confused about stuff like $x\\$. And unescape \$ in plain text.
+  
+
+  
+
+  
+</textarea>
+</form>
+
+<div id="output"></div>
+
+
+
+</body></html>
