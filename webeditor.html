@@ -234,7 +234,15 @@ Foo._enableTokens = function() {
       MathJax.Hub.Queue(["Typeset",MathJax.Hub,$("#output").get(0)]);
 		}
 		
-		
+    window.transformTimer = false;
+		function updateAfterTimeout() {
+            if(transformTimer) {
+                //console.log("clearing Timeout");
+                window.clearTimeout(transformTimer);
+                transformTimer = undefined;
+            }
+            transformTimer = window.setTimeout(function() { update(); }, 800);      
+    }
 	
 	console.log("running ometa");
 	
@@ -254,7 +262,7 @@ Foo._enableTokens = function() {
 					return editor;
 				}
 			},
-			onKeyEvent: update
+			onKeyEvent: updateAfterTimeout
 		}
 	);
 	
